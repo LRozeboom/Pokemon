@@ -4,8 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
-    private bool isMoving;
+    public LayerMask solidObjectsLayer;
 
+    private bool isMoving;
     private Vector2 input;
 
     private Animator animator;
@@ -24,7 +25,10 @@ public class PlayerController : MonoBehaviour
 
 
             // Remove diagonal movement
-            if (input.x != 0) input.y = 0;
+            if (input.x != 0)
+            {
+                input.y = 0;
+            }
 
             if (input != Vector2.zero)
             {
@@ -36,14 +40,17 @@ public class PlayerController : MonoBehaviour
                 targetPos.x += input.x;
                 targetPos.y += input.y;
 
-                StartCoroutine(Move(targetPos));
+                if (IsWalkable(targetPos))
+                {
+                    StartCoroutine(Move(targetPos));
+                }
             }
         }
 
         animator.SetBool("isMoving", isMoving);
     }
 
-    IEnumerator Move(Vector3 targetPos)
+    private IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;
 
@@ -55,5 +62,14 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPos;
 
         isMoving = false;
+    }
+
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+        {
+            return false;
+        }
+        return true;
     }
 }
