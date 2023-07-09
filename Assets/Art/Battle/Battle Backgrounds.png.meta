@@ -149,10 +149,10 @@ TextureImporter:
       name: Battle Backgrounds_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 438.75
-        width: 258.33334
-        height: 146.25
+        x: 1
+        y: 439
+        width: 258
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: Battle Backgrounds_5
       rect:
         serializedVersion: 2
-        x: 520
+        x: 519
         y: 295
-        width: 251
-        height: 140
+        width: 253
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
