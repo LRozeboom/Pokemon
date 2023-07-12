@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb76274b5b5616a4ea8ec9c0df17edd2, type: 3}
-  m_Name: Growl
+  m_Name: Origin Pulse
   m_EditorClassIdentifier: 
-  name: Growl
+  name: Origin Pulse
   description: 
-  type: 1
-  power: 0
-  accuracy: 100
-  pp: 40
+  type: 3
+  power: 110
+  accuracy: 85
+  pp: 10
   isSpecial: 1
