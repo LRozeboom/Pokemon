@@ -592,8 +592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUnit: {fileID: 924401425}
   enemyUnit: {fileID: 1753486552}
-  playerHud: {fileID: 1981756371}
-  enemyHud: {fileID: 6614641}
   dialogBox: {fileID: 2070265624}
   partyScreen: {fileID: 150947043}
 --- !u!1 &312832438
@@ -8541,6 +8539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 1
+  hud: {fileID: 1981756371}
   Pokemon:
     _base: {fileID: 0}
     level: 0
@@ -10568,6 +10567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
+  hud: {fileID: 6614641}
   Pokemon:
     _base: {fileID: 0}
     level: 0
