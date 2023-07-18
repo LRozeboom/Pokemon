@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7d48bc53f1bc741bf2e297e7ce24e8, type: 3}
   m_Name: Kyogre
   m_EditorClassIdentifier: 
-  name: Kyogre
-  description: 
-  frontSprite: {fileID: 21300000, guid: 8c381d474daeeb148869f2f952a1c1bc, type: 3}
-  backSprite: {fileID: 21300000, guid: 409f8a19520fad64fa1854be0fdafeab, type: 3}
+  name: 90
+  description: "150\t01"
+  frontSprite: {fileID: 21300000, guid: a75f4d66fc1e72649b8f7c9db73433de, type: 3}
+  backSprite: {fileID: 21300000, guid: 28ca93e0a9127c646bc98c693be33755, type: 3}
   type1: 3
   type2: 0
-  maxHp: 1
-  attack: 1
-  defense: 1
-  spAttack: 1
-  spDefense: 1
-  speed: 1
+  maxHp: 100
+  attack: 100
+  defense: 90
+  spAttack: 150
+  spDefense: 140
+  speed: 90
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 025f66e2a9dbaa045b3986391ab56ea7, type: 2}
     level: 1
