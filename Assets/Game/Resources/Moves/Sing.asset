@@ -9,19 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a7d48bc53f1bc741bf2e297e7ce24e8, type: 3}
-  m_Name: Butterfree
+  m_Script: {fileID: 11500000, guid: bb76274b5b5616a4ea8ec9c0df17edd2, type: 3}
+  m_Name: Sing
   m_EditorClassIdentifier: 
-  name: Butterfree
+  name: Sing
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type1: 0
-  type2: 0
-  maxHp: 0
-  attack: 0
-  defense: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  learnableMoves: []
+  type: 1
+  power: 0
+  accuracy: 100
+  pp: 20
+  category: 2
+  effects:
+    boosts: []
+    status: 3
+  target: 0
