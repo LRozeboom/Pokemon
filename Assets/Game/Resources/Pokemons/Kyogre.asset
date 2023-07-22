@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7d48bc53f1bc741bf2e297e7ce24e8, type: 3}
   m_Name: Kyogre
   m_EditorClassIdentifier: 
-  name: 90
+  name: Kyogre
   description: "150\t01"
   frontSprite: {fileID: 21300000, guid: a75f4d66fc1e72649b8f7c9db73433de, type: 3}
   backSprite: {fileID: 21300000, guid: 28ca93e0a9127c646bc98c693be33755, type: 3}

@@ -3,6 +3,17 @@ using UnityEngine;
 
 public class ConditionsDB
 {
+    public static void Init()
+    {
+        foreach (var kvp in Conditions)
+        {
+            var conditionId = kvp.Key;
+            var condition = kvp.Value;
+
+            condition.Id = conditionId;
+        }
+    }
+
     public static Dictionary<ConditionID, Condition> Conditions { get; set; } = new()
     {
         {
@@ -92,11 +103,50 @@ public class ConditionsDB
                     return false;
                 }
             }
+        },
+
+        // Volatile status conditions
+        {
+            ConditionID.confusion,
+            new Condition()
+            {
+                Name = "Confused",
+                StartMessage = "has been confused",
+                OnStart = (Pokemon pokemon) =>
+                {
+                    // Confused for 1-4 turns
+                    pokemon.VolatileStatusTime = Random.Range(1,5);
+                    Debug. Log($"Will be confused for {pokemon.VolatileStatusTime} moves");
+                },
+                OnBeforeMove = (Pokemon pokemon) =>
+                {
+                    if (pokemon.VolatileStatusTime <= 0)
+                    {
+                        pokemon.CureVolatileStatus();
+                        pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name} kicked out of confusion!");
+                        return true;
+                    }
+                    pokemon.VolatileStatusTime--;
+
+                    // 50% Change to still perform a move
+                    if (Random.Range(1, 3) == 1)
+                    {
+                        return true;
+                    }
+
+                    // Hurt by confusion
+                    pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name} is confused");
+                    pokemon.UpdateHP(pokemon.MaxHp / 8);
+                    pokemon.StatusChanges.Enqueue($"It hurt itself due to confusion");
+                    return false;
+                }
+            }
         }
     };
 }
 
 public enum ConditionID
 {
-    none, psn, brn, slp, par, frz
+    none, psn, brn, slp, par, frz,
+    confusion
 }
