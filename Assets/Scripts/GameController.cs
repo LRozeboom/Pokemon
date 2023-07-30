@@ -3,7 +3,8 @@ using UnityEngine;
 public enum GameState
 {
     FreeRoam,
-    Battle
+    Battle,
+    Dialog
 }
 
 public class GameController : MonoBehaviour
@@ -23,6 +24,19 @@ public class GameController : MonoBehaviour
     {
         playerController.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
+
+        DialogManager.Instance.OnShowDialog += () =>
+        {
+            state = GameState.Dialog;
+        };
+
+        DialogManager.Instance.OnCloseDialog += () =>
+        {
+            if (state == GameState.Dialog)
+            {
+                state = GameState.FreeRoam;
+            }
+        };
     }
 
     void StartBattle()
@@ -53,6 +67,10 @@ public class GameController : MonoBehaviour
         else if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
+        }
+        else if (state == GameState.Dialog)
+        {
+            DialogManager.Instance.HandleUpdate();
         }
     }
 }
