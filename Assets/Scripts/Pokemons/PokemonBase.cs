@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,9 @@ public class PokemonBase : ScriptableObject
     [SerializeField] int spAttack;
     [SerializeField] int spDefense;
     [SerializeField] int speed;
+
+    [SerializeField] int expYield;
+    [SerializeField] GrowthRate growthRate;
 
     [SerializeField] int catchRate = 255;
 
@@ -92,6 +96,25 @@ public class PokemonBase : ScriptableObject
     }
 
     public int CatchRate => catchRate;
+
+    public int ExpYield => expYield;
+
+    public GrowthRate GrowthRate => growthRate;
+
+    public int GetExpForLevel(int level)
+    {
+        if (growthRate == GrowthRate.Fast)
+        {
+            return 4 * (level * level * level) / 5;
+        }
+        else if (growthRate == GrowthRate.MediumFast)
+        {
+            return level * level * level;
+        }
+
+        // Exception if any of the growth rate that are not implemented are used.
+        throw new InvalidOperationException();
+    }
 }
 
 [System.Serializable]
@@ -132,6 +155,13 @@ public enum PokemonType
     Dark,
     Steel,
     Fairy
+}
+
+// TODO - Implement other growth rates
+public enum GrowthRate
+{
+    Fast,
+    MediumFast
 }
 
 public enum Stat
