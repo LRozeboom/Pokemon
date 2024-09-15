@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -143,6 +144,17 @@ public class Pokemon
 
             Debug.Log($"{stat} has been boosted to {StatBoosts[stat]}");
         }
+    }
+
+    public bool CheckForLevelUp()
+    {
+        if (Exp > Base.GetExpForLevel(level + 1))
+        {
+            ++level;
+            return true;
+        }
+
+        return false;
     }
 
     public int Attack
