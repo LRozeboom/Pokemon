@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     public void SetPositionAndSnapToTile(Vector2 pos)
     {
         // Sets position to center of tile
-        pos.x = Mathf.Floor(pos.x + 0.5f);
+        pos.x = Mathf.Floor(pos.x) + 0.5f;
 
         // Sets position to center of tile plus offset
         pos.y = Mathf.Floor(pos.y) + 0.5f + OffsetY;

@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
 {
     [SerializeField] int sceneToLoad = -1;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] DestinationIdentifier destinationPortal;
 
     PlayerController player;
 
@@ -20,13 +21,19 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
     {
         DontDestroyOnLoad(gameObject);
 
+        GameController.Instance.PauseGame(pause: true);
+
         yield return SceneManager.LoadSceneAsync(sceneToLoad);
 
-        var destPortal = FindObjectsOfType<Portal>().First(x => x != this);
+        var destPortal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == destinationPortal);
         player.Character.SetPositionAndSnapToTile(destPortal.spawnPoint.position);
+
+        GameController.Instance.PauseGame(pause: false);
 
         Destroy(gameObject);
     }
 
     public Transform SpawnPoint => spawnPoint;
 }
+
+public enum DestinationIdentifier { A, B, C, D, E, F, }
