@@ -8,9 +8,23 @@ public class Character : MonoBehaviour
     CharacterAnimator animator;
     public bool IsMoving { get; private set; }
 
+    public float OffsetY { get; private set; } = 0.3f;
+
     private void Awake()
     {
         animator = GetComponent<CharacterAnimator>();
+        SetPositionAndSnapToTile(transform.position);
+    }
+
+    public void SetPositionAndSnapToTile(Vector2 pos)
+    {
+        // Sets position to center of tile
+        pos.x = Mathf.Floor(pos.x + 0.5f);
+
+        // Sets position to center of tile plus offset
+        pos.y = Mathf.Floor(pos.y) + 0.5f + OffsetY;
+
+        transform.position = pos;
     }
 
     public IEnumerator Move(Vector2 moveVec, Action OnMoveOver = null)
