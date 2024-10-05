@@ -10,7 +10,16 @@ public class EssentialObjectsSpawner : MonoBehaviour
 
         if (existingObjects.Length == 0)
         {
-            Instantiate(essentialObjectsPrefab, new Vector3(0, 0, 0 ), Quaternion.identity);
+            var spawnPosition = new Vector3(0, 0, 0);
+            var grid = FindObjectOfType<Grid>();
+            
+            // IF there is a grid, spawn at the center of the grid
+            if (grid != null)
+            {
+                spawnPosition = grid.transform.position;
+            }
+            
+            Instantiate(essentialObjectsPrefab, spawnPosition, Quaternion.identity);
         }
     }
 }
