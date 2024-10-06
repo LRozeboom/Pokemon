@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class Pokemon
@@ -16,21 +18,25 @@ public class Pokemon
         Init();
     }
 
-    public PokemonBase Base
+    public Pokemon(PokemonSaveData saveData)
     {
-        get
-        {
-            return _base;
-        }
+        _base = PokemonDB.GetPokemonByName(saveData.Name);
+        HP = saveData.Hp;
+        level = saveData.Level;
+        Exp = saveData.Exp;
+
+        Moves = saveData.Moves.Select(x => new Move(x)).ToList();
+        
+        Status = saveData.StatusId != null ? ConditionsDB.Conditions[saveData.StatusId.Value] : null;
+        CalculateStats();
+        StatusChanges = new Queue<string>();
+        ResetStatBoost();
+        VolatileStatus = null;
     }
 
-    public int Level
-    {
-        get
-        {
-            return level;
-        }
-    }
+    public PokemonBase Base => _base;
+
+    public int Level => level;
 
     public int Exp { get; set; }
     public int HP { get; set; }
@@ -46,7 +52,7 @@ public class Pokemon
 
     public bool HpChanged { get; set; }
 
-    public event System.Action OnStatusChanged;
+    public event Action OnStatusChanged;
 
     public void Init()
     {
@@ -73,6 +79,21 @@ public class Pokemon
         ResetStatBoost();
         Status = null;
         VolatileStatus = null;
+    }
+    
+    public PokemonSaveData GetSaveData()
+    {
+        var saveData = new PokemonSaveData
+        {
+            Name = Base.Name,
+            Hp = HP,
+            Level = level,
+            Exp = Exp,
+            StatusId = Status?.Id,
+            Moves = Moves.Select(x => x.GetSaveData()).ToList(),
+        };
+        
+        return saveData;
     }
 
     void CalculateStats()
@@ -171,29 +192,15 @@ public class Pokemon
         Moves.Add(new Move(moveToLearn.Base));
     }
 
-    public int Attack
-    {
-        get { return GetStat(Stat.Attack); }
-    }
+    public int Attack => GetStat(Stat.Attack);
 
-    public int Defense
-    {
-        get { return GetStat(Stat.Defense); }
-    }
+    public int Defense => GetStat(Stat.Defense);
 
-    public int SpAttack
-    {
-        get { return GetStat(Stat.SpAttack); }
-    }
-    public int SpDefense
-    {
-        get { return GetStat(Stat.SpDefense); }
-    }
+    public int SpAttack => GetStat(Stat.SpAttack);
 
-    public int Speed
-    {
-        get { return GetStat(Stat.Speed); }
-    }
+    public int SpDefense => GetStat(Stat.SpDefense);
+
+    public int Speed => GetStat(Stat.Speed);
 
     public int MaxHp { get; private set; }
 
@@ -324,4 +331,15 @@ public class DamageDetails
     public bool Fainted { get; set; }
     public float Critical { get; set; }
     public float TypeEffectiveness { get; set; }
+}
+
+[Serializable]
+public class PokemonSaveData
+{
+    public string Name { get; set; }
+    public int Hp { get; set; }
+    public int Level { get; set; }
+    public int Exp { get; set; }
+    public ConditionID? StatusId { get; set; }
+    public List<MoveSaveData> Moves { get; set; }
 }

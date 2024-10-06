@@ -107,13 +107,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
             fov.gameObject.SetActive(false);
     }
 
-    public string Name
-    {
-        get => name;
-    }
+    public string Name => name;
 
-    public Sprite Sprite
-    {
-        get => sprite;
-    }
+    public Sprite Sprite => sprite;
 }

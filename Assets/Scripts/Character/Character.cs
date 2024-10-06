@@ -98,8 +98,5 @@ public class Character : MonoBehaviour
         }
     }
 
-    public CharacterAnimator Animator
-    {
-        get => animator;
-    }
+    public CharacterAnimator Animator => animator;
 }

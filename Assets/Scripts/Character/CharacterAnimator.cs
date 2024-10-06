@@ -97,10 +97,7 @@ public class CharacterAnimator : MonoBehaviour
         }
     }
 
-    public FacingDirection DefaultDirection
-    {
-        get => defaultDirection;
-    }
+    public FacingDirection DefaultDirection => defaultDirection;
 }
 
 public enum FacingDirection { Up, Down, Left, Right }

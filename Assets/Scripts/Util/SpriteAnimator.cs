@@ -35,8 +35,5 @@ public class SpriteAnimator
         }
     }
 
-    public List<Sprite> Frames
-    {
-        get { return frames; }
-    }
+    public List<Sprite> Frames => frames;
 }

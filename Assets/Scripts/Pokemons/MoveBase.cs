@@ -21,65 +21,29 @@ public class MoveBase : ScriptableObject
     [SerializeField] List<SecondaryEffects> secondaries;
     [SerializeField] MoveTarget target;
 
-    public string Name
-    {
-        get { return name; }
-    }
+    public string Name => name;
 
-    public string Description
-    {
-        get { return description; }
-    }
+    public string Description => description;
 
-    public PokemonType Type
-    {
-        get { return type; }
-    }
+    public PokemonType Type => type;
 
-    public int Power
-    {
-        get { return power; }
-    }
+    public int Power => power;
 
-    public int Accuracy
-    {
-        get { return accuracy; }
-    }
+    public int Accuracy => accuracy;
 
-    public bool AlwaysHits
-    {
-        get { return alwaysHits; }
-    }
+    public bool AlwaysHits => alwaysHits;
 
-    public int PP
-    {
-        get { return pp; }
-    }
+    public int PP => pp;
 
-    public int Priority
-    {
-        get { return priority; }
-    }
+    public int Priority => priority;
 
-    public MoveCategory Category
-    {
-        get { return category; }
-    }
+    public MoveCategory Category => category;
 
-    public MoveEffects Effects
-    {
-        get { return effects; }
-    }
+    public MoveEffects Effects => effects;
 
-    public List<SecondaryEffects> Secondaries
-    {
-        get { return secondaries; }
-    }
+    public List<SecondaryEffects> Secondaries => secondaries;
 
-    public MoveTarget Target
-    {
-        get { return target; }
-    }
+    public MoveTarget Target => target;
 }
 
 [System.Serializable]
@@ -89,20 +53,11 @@ public class MoveEffects
     [SerializeField] ConditionID status;
     [SerializeField] ConditionID volatileStatus;
 
-    public List<StatBoost> Boosts
-    {
-        get { return boosts; }
-    }
+    public List<StatBoost> Boosts => boosts;
 
-    public ConditionID Status
-    {
-        get { return status; }
-    }
+    public ConditionID Status => status;
 
-    public ConditionID VolatileStatus
-    {
-        get { return volatileStatus; }
-    }
+    public ConditionID VolatileStatus => volatileStatus;
 }
 
 [System.Serializable]
@@ -111,15 +66,9 @@ public class SecondaryEffects : MoveEffects
     [SerializeField] int chance;
     [SerializeField] MoveTarget target;
 
-    public int Chance
-    {
-        get { return chance; }
-    }
+    public int Chance => chance;
 
-    public MoveTarget Target
-    {
-        get { return target; }
-    }
+    public MoveTarget Target => target;
 }
 
 [System.Serializable]

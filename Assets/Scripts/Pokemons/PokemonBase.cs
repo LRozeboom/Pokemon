@@ -33,69 +33,31 @@ public class PokemonBase : ScriptableObject
 
     public static int MaxNumOfMoves { get; set; } = 4;
 
-    public string Name
-    {
-        get { return name; }
-    }
+    public string Name => name;
 
-    public string Description
-    {
-        get { return description; }
-    }
-    public Sprite FrontSprite
-    {
-        get { return frontSprite; }
-    }
+    public string Description => description;
 
-    public Sprite BackSprite
-    {
-        get { return backSprite; }
-    }
+    public Sprite FrontSprite => frontSprite;
 
-    public PokemonType Type1
-    {
-        get { return type1; }
-    }
+    public Sprite BackSprite => backSprite;
 
-    public PokemonType Type2
-    {
-        get { return type2; }
-    }
+    public PokemonType Type1 => type1;
 
-    public int MaxHp
-    {
-        get { return maxHp; }
-    }
+    public PokemonType Type2 => type2;
 
-    public int Attack
-    {
-        get { return attack; }
-    }
+    public int MaxHp => maxHp;
 
-    public int Defense
-    {
-        get { return defense; }
-    }
+    public int Attack => attack;
 
-    public int SpAttack
-    {
-        get { return spAttack; }
-    }
+    public int Defense => defense;
 
-    public int SpDefense
-    {
-        get { return spDefense; }
-    }
+    public int SpAttack => spAttack;
 
-    public int Speed
-    {
-        get { return speed; }
-    }
+    public int SpDefense => spDefense;
 
-    public List<LearnableMove> LearnableMoves
-    {
-        get { return learnableMoves; }
-    }
+    public int Speed => speed;
+
+    public List<LearnableMove> LearnableMoves => learnableMoves;
 
     public int CatchRate => catchRate;
 
@@ -125,15 +87,9 @@ public class LearnableMove
     [SerializeField] MoveBase moveBase;
     [SerializeField] int level;
 
-    public MoveBase Base
-    {
-        get { return moveBase; }
-    }
+    public MoveBase Base => moveBase;
 
-    public int Level
-    {
-        get { return level; }
-    }
+    public int Level => level;
 }
 
 public enum PokemonType

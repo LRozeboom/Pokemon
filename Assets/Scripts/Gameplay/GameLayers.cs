@@ -15,38 +15,17 @@ public class GameLayers : MonoBehaviour
         i = this;
     }
 
-    public LayerMask SolidLayer
-    {
-        get => solidObjectsLayer;
-    }
+    public LayerMask SolidLayer => solidObjectsLayer;
 
-    public LayerMask InteractableLayer
-    {
-        get => interactableLayer;
-    }
+    public LayerMask InteractableLayer => interactableLayer;
 
-    public LayerMask GrassLayer
-    {
-        get => grassLayer;
-    }
+    public LayerMask GrassLayer => grassLayer;
 
-    public LayerMask PlayerLayer
-    {
-        get => playerLayer;
-    }
+    public LayerMask PlayerLayer => playerLayer;
 
-    public LayerMask FovLayer
-    {
-        get => fovLayer;
-    }
+    public LayerMask FovLayer => fovLayer;
 
-    public LayerMask PortalLayer
-    {
-        get => portalLayer;
-    }
+    public LayerMask PortalLayer => portalLayer;
 
-    public LayerMask TriggerableLayers
-    {
-        get => grassLayer | fovLayer | portalLayer;
-    }
+    public LayerMask TriggerableLayers => grassLayer | fovLayer | portalLayer;
 }
