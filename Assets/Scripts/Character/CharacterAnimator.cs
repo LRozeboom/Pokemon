@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class CharacterAnimator : MonoBehaviour
 {
-    [SerializeField] List<Sprite> walkDownSprites;
-    [SerializeField] List<Sprite> walkUpSprites;
-    [SerializeField] List<Sprite> walkRightSprites;
-    [SerializeField] List<Sprite> walkLeftSprites;
-    [SerializeField] FacingDirection defaultDirection = FacingDirection.Down;
+    [SerializeField] private List<Sprite> walkDownSprites;
+    [SerializeField] private List<Sprite> walkUpSprites;
+    [SerializeField] private List<Sprite> walkRightSprites;
+    [SerializeField] private List<Sprite> walkLeftSprites;
+    [SerializeField] private FacingDirection defaultDirection = FacingDirection.Down;
 
     // Parameters
     public float MoveX { get; set; }
@@ -15,16 +15,16 @@ public class CharacterAnimator : MonoBehaviour
     public bool IsMoving { get; set; }
 
     // States
-    SpriteAnimator walkDownAnim;
-    SpriteAnimator walkUpAnim;
-    SpriteAnimator walkRightAnim;
-    SpriteAnimator walkLeftAnim;
+    private SpriteAnimator walkDownAnim;
+    private SpriteAnimator walkUpAnim;
+    private SpriteAnimator walkRightAnim;
+    private SpriteAnimator walkLeftAnim;
 
-    SpriteAnimator currentAnim;
-    bool wasPreviouslyMoving;
+    private SpriteAnimator currentAnim;
+    private bool wasPreviouslyMoving;
 
     // References
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {

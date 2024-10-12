@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class LocationPortal : MonoBehaviour, IPlayerTriggerable
 {
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] DestinationIdentifier destinationPortal;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private DestinationIdentifier destinationPortal;
 
-    PlayerController player;
-    Fader fader;
+    private PlayerController player;
+    private Fader fader;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class LocationPortal : MonoBehaviour, IPlayerTriggerable
         StartCoroutine(Teleport());
     }
 
-    IEnumerator Teleport()
+    private IEnumerator Teleport()
     {
         GameController.Instance.PauseGame(pause: true);
 

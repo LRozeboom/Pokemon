@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class TrainerController : MonoBehaviour, Interactable, ISavable
 {
-    [SerializeField] string name;
-    [SerializeField] Sprite sprite;
-    [SerializeField] Dialog dialog;
-    [SerializeField] Dialog dialogAfterBattle;
-    [SerializeField] GameObject exclamation;
-    [SerializeField] GameObject fov;
+    [SerializeField] private string name;
+    [SerializeField] private Sprite sprite;
+    [SerializeField] private Dialog dialog;
+    [SerializeField] private Dialog dialogAfterBattle;
+    [SerializeField] private GameObject exclamation;
+    [SerializeField] private GameObject fov;
 
-    Character character;
+    private Character character;
 
-    bool battleLost = false;
+    private bool battleLost = false;
 
     private void Awake()
     {

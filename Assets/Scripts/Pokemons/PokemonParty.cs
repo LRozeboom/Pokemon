@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PokemonParty : MonoBehaviour
 {
-    [SerializeField] List<Pokemon> pokemons;
+    [SerializeField] private List<Pokemon> pokemons;
 
     public List<Pokemon> Pokemons
     {

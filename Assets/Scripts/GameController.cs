@@ -11,13 +11,13 @@ public enum GameState
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController;
-    [SerializeField] BattleSystem battleSystem;
-    [SerializeField] Camera worldCamera;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private BattleSystem battleSystem;
+    [SerializeField] private Camera worldCamera;
 
-    GameState state;
+    private GameState state;
 
-    GameState stateBeforePause;
+    private GameState stateBeforePause;
 
     public SceneDetails CurrentScene { get; private set; }
 
@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
         battleSystem.StartBattle(playerParty, wildPokemonCopy);
     }
 
-    TrainerController trainer;
+    private TrainerController trainer;
 
     public void StartTrainerBattle(TrainerController trainer)
     {
@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(trainer.TriggerTrainerBattle(playerController));
     }
 
-    void EndBattle(bool won)
+    private void EndBattle(bool won)
     {
         if (trainer != null && won)
         {

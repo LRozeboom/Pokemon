@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField] GameObject dialogBox;
-    [SerializeField] Text dialogText;
-    [SerializeField] int lettersPerSecond;
+    [SerializeField] private GameObject dialogBox;
+    [SerializeField] private Text dialogText;
+    [SerializeField] private int lettersPerSecond;
 
     public event Action OnShowDialog;
     public event Action OnCloseDialog;
@@ -18,11 +18,11 @@ public class DialogManager : MonoBehaviour
         Instance = this;
     }
 
-    Dialog dialog;
-    Action onDialogFinished;
+    private Dialog dialog;
+    private Action onDialogFinished;
 
-    int currentLine = 0;
-    bool isTyping;
+    private int currentLine = 0;
+    private bool isTyping;
 
     public bool IsShowing { get; private set; }
 
