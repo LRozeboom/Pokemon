@@ -8,8 +8,8 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private GameObject menu;
 
-    public event Action<int> onMenuSelected;
-    public event Action onBack;
+    public event Action<int> OnMenuSelected;
+    public event Action OnBack;
 
     private List<Text> menuItems;
     
@@ -47,12 +47,12 @@ public class MenuController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            onMenuSelected?.Invoke(selectedItem);
+            OnMenuSelected?.Invoke(selectedItem);
             CloseMenu();
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            onBack?.Invoke();
+            OnBack?.Invoke();
             CloseMenu();
         }
     }

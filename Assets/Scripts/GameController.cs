@@ -56,12 +56,12 @@ public class GameController : MonoBehaviour
             }
         };
 
-        menuController.onBack += () =>
+        menuController.OnBack += () =>
         {
             state = GameState.FreeRoam;
         };
 
-        menuController.onMenuSelected += OnMenuSelected;
+        menuController.OnMenuSelected += OnMenuSelected;
     }
     
     public void PauseGame(bool pause)
